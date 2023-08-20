@@ -1,0 +1,12 @@
+[versions]
+kotlin = "1.9.0"
+ksp = "1.9.0-1.0.13"
+detekt = "1.23.1"
+
+[libraries]
+ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
