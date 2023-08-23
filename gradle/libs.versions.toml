@@ -2,9 +2,11 @@
 kotlin = "1.9.0"
 ksp = "1.9.0-1.0.13"
 detekt = "1.23.1"
+compile-testing-ksp = "1.5.0"
 
 [libraries]
 ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
+compile-testing-ksp = { group = "com.github.tschuchortdev", name = "kotlin-compile-testing-ksp", version.ref = "compile-testing-ksp" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

@@ -6,5 +6,5 @@ plugins {
 dependencies {
     implementation(project(":default-impl-annotations"))
     ksp(project(":default-impl-processor"))
-    testImplementation(kotlin("test"))
+//    testImplementation(kotlin("test"))
 }
