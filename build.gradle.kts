@@ -8,7 +8,7 @@ plugins {
 }
 
 tasks.register("cleanAll", Delete::class) {
-    delete(rootProject.buildDir)
+    delete(rootProject.layout.buildDirectory)
 }
 
 tasks.register("detektAll") {
