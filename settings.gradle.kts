@@ -16,4 +16,3 @@ rootProject.name = "default-impl"
 include(":default-impl-processor")
 include(":default-impl-annotations")
 include(":default-impl-sample")
-include(":default-impl-test")
