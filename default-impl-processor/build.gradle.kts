@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm")
+    kotlin("multiplatform")
     alias(libs.plugins.detekt)
     id("publication")
 }
@@ -7,9 +7,25 @@ plugins {
 group = properties["lib.group"].toString()
 version = properties["lib.version"].toString()
 
-dependencies {
-    implementation(libs.ksp.api)
-    implementation(project(":default-impl-annotations"))
-    testImplementation(kotlin("test"))
-    testImplementation(libs.compile.testing.ksp)
+kotlin {
+    jvmToolchain(17)
+    jvm()
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation(libs.ksp.api)
+                implementation(project(":default-impl-annotations"))
+            }
+            kotlin.srcDir("src/main/kotlin")
+            resources.srcDir("src/main/resources")
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(libs.compile.testing.ksp)
+            }
+            kotlin.srcDir("src/test/kotlin")
+            resources.srcDir("src/test/resources")
+        }
+    }
 }

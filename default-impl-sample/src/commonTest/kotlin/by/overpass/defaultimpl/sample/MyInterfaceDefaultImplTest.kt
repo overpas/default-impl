@@ -1,26 +1,26 @@
 package by.overpass.defaultimpl.sample
 
+import kotlin.test.Test
 import kotlin.test.assertTrue
-import org.junit.Test
 
 class MyInterfaceDefaultImplTest {
 
     @Test
-    fun `MyInterface default implementation constructor generated`() {
+    fun testMyInterfaceDefaultImplementationConstructorGenerated() {
         val actual = MyInterface("", 0.0)
 
         assertTrue { actual is MyInterfaceImpl }
     }
 
     @Test
-    fun `MyInterface default implementation secondary constructor generated`() {
+    fun testMyInterfaceDefaultImplementationSecondaryConstructorGenerated() {
         val actual = MyInterface(0)
 
         assertTrue { actual is MyInterfaceImpl }
     }
 
     @Test
-    fun `MyInterface2 default implementation constructor generated`() {
+    fun testMyInterface2DefaultImplementationConstructorGenerated() {
         val actual = MyInterface2()
 
         assertTrue { actual is MyInterface2Impl }

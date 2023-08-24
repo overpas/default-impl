@@ -15,5 +15,6 @@ internal class MyInterfaceImpl(
     override val double: Double,
 ) : MyInterface {
 
+    @Suppress("UnusedPrivateProperty")
     constructor(int: Int) : this("", 0.0)
 }

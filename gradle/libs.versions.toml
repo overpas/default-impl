@@ -3,12 +3,16 @@ kotlin = "1.9.0"
 ksp = "1.9.0-1.0.13"
 detekt = "1.23.1"
 compile-testing-ksp = "1.5.0"
+agp = '8.0.2'
 
 [libraries]
 ksp-api = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
 compile-testing-ksp = { group = "com.github.tschuchortdev", name = "kotlin-compile-testing-ksp", version.ref = "compile-testing-ksp" }
 
 [plugins]
+android-lib = { id = "com.android.library", version.ref = "agp" }
+android-app = { id = "com.android.application", version.ref = "agp" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

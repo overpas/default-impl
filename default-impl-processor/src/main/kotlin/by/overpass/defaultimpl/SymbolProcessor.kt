@@ -27,6 +27,7 @@ class SymbolProcessor(
     private val logger: KSPLogger,
 ) : SymbolProcessor {
 
+    @Suppress("UnsafeCallOnNullableType")
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val defaultImplAnnotationQualifiedName = DefaultImpl::class.qualifiedName!!
         resolver.getSymbolsWithAnnotation(defaultImplAnnotationQualifiedName)
@@ -41,6 +42,7 @@ class SymbolProcessor(
         return emptyList()
     }
 
+    @Suppress("UnsafeCallOnNullableType")
     private fun processClassDeclaration(
         resolver: Resolver,
         defaultImplAnnotationQualifiedName: String,

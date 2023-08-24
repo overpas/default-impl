@@ -20,6 +20,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - name: Detekt
-        run: ./gradlew detekt
+        run: ./gradlew detektAll
       - name: Build
         run: ./gradlew build
