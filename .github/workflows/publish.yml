@@ -19,7 +19,7 @@ jobs:
       - name: Release build
         run: ./gradlew build
       - name: Source jar
-        run: ./gradlew androidSourcesJar javadocJar
+        run: ./gradlew androidDebugSourcesJar androidReleaseSourcesJar javadocJar
       - name: Publish to MavenCentral
         run: ./gradlew publishAllPublicationsToSonatypeRepository --max-workers 1 closeAndReleaseSonatypeStagingRepository
         env:

@@ -91,17 +91,3 @@ signing {
     )
     sign(publishing.publications)
 }
-
-tasks.matching { it.name.endsWith("PublicationToSonatypeRepository") }
-    .configureEach {
-        dependsOn(tasks.matching { it.name == "signIosArm64Publication" })
-        dependsOn(tasks.matching { it.name == "signIosX64Publication" })
-        dependsOn(tasks.matching { it.name == "signMingwX64Publication" })
-        dependsOn(tasks.matching { it.name == "signLinuxX64Publication" })
-        dependsOn(tasks.matching { it.name == "signLinuxArm64Publication" })
-        dependsOn(tasks.matching { it.name == "signIosSimulatorArm64Publication" })
-        dependsOn(tasks.matching { it.name == "signJvmPublication" })
-        dependsOn(tasks.matching { it.name == "signKotlinMultiplatformPublication" })
-        dependsOn(tasks.matching { it.name == "signAndroidDebugPublication" })
-        dependsOn(tasks.matching { it.name == "signAndroidReleasePublication" })
-    }

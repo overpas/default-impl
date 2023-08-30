@@ -29,3 +29,9 @@ kotlin {
         }
     }
 }
+
+tasks.matching { it.name.endsWith("PublicationToSonatypeRepository") }
+    .configureEach {
+        dependsOn(tasks.matching { it.name == "signKotlinMultiplatformPublication" })
+        dependsOn(tasks.matching { it.name == "signJvmPublication" })
+    }

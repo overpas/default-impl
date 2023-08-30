@@ -56,3 +56,26 @@ kotlin {
 
 group = properties["lib.group"].toString()
 version = properties["lib.version"].toString()
+
+tasks.matching { it.name.endsWith("PublicationToSonatypeRepository") }
+    .configureEach {
+        dependsOn(tasks.matching { it.name == "signKotlinMultiplatformPublication" })
+        dependsOn(tasks.matching { it.name == "signAndroidDebugPublication" })
+        dependsOn(tasks.matching { it.name == "signAndroidReleasePublication" })
+        dependsOn(tasks.matching { it.name == "signJvmPublication" })
+        dependsOn(tasks.matching { it.name == "signIosX64Publication" })
+        dependsOn(tasks.matching { it.name == "signIosArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signIosSimulatorArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signWatchosX64Publication" })
+        dependsOn(tasks.matching { it.name == "signWatchosArm32Publication" })
+        dependsOn(tasks.matching { it.name == "signWatchosArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signWatchosSimulatorArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signMacosX64Publication" })
+        dependsOn(tasks.matching { it.name == "signMacosArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signTvosX64Publication" })
+        dependsOn(tasks.matching { it.name == "signTvosArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signTvosSimulatorArm64Publication" })
+        dependsOn(tasks.matching { it.name == "signMingwX64Publication" })
+        dependsOn(tasks.matching { it.name == "signLinuxX64Publication" })
+        dependsOn(tasks.matching { it.name == "signLinuxArm64Publication" })
+    }
