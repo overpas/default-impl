@@ -45,6 +45,7 @@ kotlin {
     linuxArm64()
     sourceSets {
         val commonMain by getting {
+            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
             dependencies {
                 implementation(project(":default-impl-annotations"))
             }
@@ -58,22 +59,27 @@ kotlin {
 }
 
 dependencies {
-    ksp(project(":default-impl-processor"))
     add("kspCommonMainMetadata", project(":default-impl-processor"))
-    add("kspJvm", project(":default-impl-processor"))
-    add("kspJvmTest", project(":default-impl-processor"))
-    add("kspAndroid", project(":default-impl-processor"))
-    add("kspAndroidTest", project(":default-impl-processor"))
-    add("kspIosX64", project(":default-impl-processor"))
-    add("kspIosX64Test", project(":default-impl-processor"))
-    add("kspIosArm64", project(":default-impl-processor"))
-    add("kspIosArm64Test", project(":default-impl-processor"))
-    add("kspIosSimulatorArm64", project(":default-impl-processor"))
-    add("kspIosSimulatorArm64Test", project(":default-impl-processor"))
-    add("kspLinuxX64", project(":default-impl-processor"))
-    add("kspLinuxX64Test", project(":default-impl-processor"))
-    add("kspLinuxArm64", project(":default-impl-processor"))
-    add("kspLinuxArm64Test", project(":default-impl-processor"))
-    add("kspMingwX64", project(":default-impl-processor"))
-    add("kspMingwX64Test", project(":default-impl-processor"))
+//    add("kspJvm", project(":default-impl-processor"))
+//    add("kspJvmTest", project(":default-impl-processor"))
+//    add("kspAndroid", project(":default-impl-processor"))
+//    add("kspAndroidTest", project(":default-impl-processor"))
+//    add("kspIosX64", project(":default-impl-processor"))
+//    add("kspIosX64Test", project(":default-impl-processor"))
+//    add("kspIosArm64", project(":default-impl-processor"))
+//    add("kspIosArm64Test", project(":default-impl-processor"))
+//    add("kspIosSimulatorArm64", project(":default-impl-processor"))
+//    add("kspIosSimulatorArm64Test", project(":default-impl-processor"))
+//    add("kspLinuxX64", project(":default-impl-processor"))
+//    add("kspLinuxX64Test", project(":default-impl-processor"))
+//    add("kspLinuxArm64", project(":default-impl-processor"))
+//    add("kspLinuxArm64Test", project(":default-impl-processor"))
+//    add("kspMingwX64", project(":default-impl-processor"))
+//    add("kspMingwX64Test", project(":default-impl-processor"))
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 }
