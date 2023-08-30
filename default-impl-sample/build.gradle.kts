@@ -40,6 +40,15 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    watchosX64()
+    watchosArm32()
+    watchosArm64()
+    watchosSimulatorArm64()
+    macosX64()
+    macosArm64()
+    tvosX64()
+    tvosArm64()
+    tvosSimulatorArm64()
     mingwX64()
     linuxX64()
     linuxArm64()
@@ -101,3 +110,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().configureEach
         dependsOn("kspCommonMainKotlinMetadata")
     }
 }
+
+tasks.matching { it.name == "detektMetadataMain" }
+    .configureEach {
+        dependsOn(tasks.matching { it.name == "kspCommonMainKotlinMetadata" })
+    }
